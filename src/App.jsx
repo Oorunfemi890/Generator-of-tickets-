@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import "./index.css";
 
 Modal.setAppElement("#root");
-
+ const apiurl= " https://agreement-form-backend.onrender.com"
 const App = () => {
   const [formData, setFormData] = useState({
     date: "",
@@ -87,7 +87,7 @@ const App = () => {
 
     try {
       // Simulate API call with a delay (this would be your real API call)
-      const response = await axios.post("http://localhost:5000/api/agreement", formData);
+      const response = await axios.post(`${apiurl}/api/agreement`, formData);
       
       // Handle success response from the API
       if (response.data.success) {
