@@ -56,52 +56,47 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Email Validation
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailRegex.test(formData.email)) {
       alert("Please enter a valid email address.");
       return;
     }
 
-    // Phone Number Validation
     const phoneRegex = /^[0-9]{11}$/;
     const phone = formData.phone.join("");
     if (!phoneRegex.test(phone)) {
-      alert("Please enter a valid 11-digit Nigerian phone number.");
+      alert("Please enter a valid 11-digit  phone number.");
       return;
     }
 
-    setModalIsOpen(true); // Show the modal with the Confirm Agreement button
+    setModalIsOpen(true); 
   };
 
   const handleProcessing = async () => {
-    setButtonText("Processing..."); // Change button text to "Processing..."
+    setButtonText("Processing..."); 
     setProcessing(true);
     let count = 0;
 
-    // Start the dot animation (showing 1 dot per second)
     const interval = setInterval(() => {
       setDotCount(count);
-      count = (count + 1) % 6; // Reset to 0 after 5 dots
+      count = (count + 1) % 6; 
     }, 1000);
 
     try {
-      // Simulate API call with a delay (this would be your real API call)
-      const response = await axios.post(`${apiurl}/api/agreement`, formData);
-      
-      // Handle success response from the API
+      const phoneNumber = formData.phone.join(""); 
+      const response = await axios.post("http://localhost:5000/api/agreement", formData);
+
       if (response.data.success) {
-        setConfirmationModal(true); // Show confirmation modal
-        setModalIsOpen(false); // Close the initial modal
+        setConfirmationModal(true); 
+        setModalIsOpen(false); 
       }
     } catch (error) {
       console.error("Error during agreement submission:", error);
     } finally {
-      // Stop the dot animation and reset to original button text
       clearInterval(interval);
-      setDotCount(0); // Reset dot count
+      setDotCount(0); 
       setProcessing(false);
-      setButtonText("Confirm Agreement"); // Reset the button text back to original
+      setButtonText("Confirm Agreement");
     }
   };
 
