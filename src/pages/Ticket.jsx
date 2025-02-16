@@ -14,18 +14,19 @@ const Tickets = () => {
       const parsedData = JSON.parse(storedData);
       setAttendeeDetails(parsedData);
 
-      // Generate barcode after setting data
       setTimeout(() => {
         if (barcodeRef.current) {
           JsBarcode(barcodeRef.current, parsedData.email || "123456789", {
             format: "CODE128",
-            displayValue: false,
-            lineColor: "#fff",
+            displayValue: false, // Hides the text below the barcode
+            lineColor: "#000", // Black barcode lines
             width: 2,
             height: 50,
+            background: "#fff", // White background
+            margin: 5,
           });
         }
-      }, 300);
+      }, 500);
     }
   }, []);
 
