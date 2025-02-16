@@ -1,67 +1,44 @@
-/* General Styles */
-body {
-  background-color: #081c24;
-  font-family: 'Poppins', sans-serif;
-  color: #ffffff;
+/* Global Reset & Settings */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html, body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Ensure images scale down appropriately */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* TicketsSelection.css */
+
+/* General Styles */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #05252C;
   padding: 20px;
+  margin-top: 80px;
+  border-radius: 20px;
+  width: 100%; /* Let container take full width so inner elements can adjust */
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 15px 30px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px;
-}
-
-.nav-links .active {
-  font-weight: bold;
-  border-bottom: 2px solid #00a8e8;
-}
-
-.logo {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-.my-tickets {
-  background: #ffffff;
-  color: #081c24;
-  padding: 8px 15px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Card */
 .card {
   background-color: #05252C;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid #197686;
   width: 450px;
   margin-top: 20px;
-
+  max-width: 95%; /* Prevent overflow on very small screens */
 }
+
 /* Header */
 .header {
   display: flex;
@@ -94,26 +71,30 @@ body {
   width: 33%;
   border-radius: 10px;
 }
-.event-div{
+
+/* Event Section */
+.event-div {
   background: rgb(14, 41, 53);
   text-align: center;
   border: 1px solid #197686;
   border-radius: 10px;
+  padding: 10px;
+}
 
-}
 .event-details h3 {
-  
   font-size: 20px;
-  /* color: #00a8e8; */
 }
-.inner-container{
-   padding: 20px;
+
+.inner-container {
+  padding: 20px;
   border-radius: 10px;
   border: 1px solid #197686;
   width: 400px;
   margin: auto;
   margin-top: 20px;
+  max-width: 100%;
 }
+
 .event-info {
   font-size: 14px;
   color: #b0b0b0;
@@ -132,16 +113,20 @@ body {
   border-radius: 8px;
   margin: 10px;
   border: 2px solid #0E464F;
-  background-color: #07373F;  margin-top: 10px;
+  background-color: #07373F;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ticket:hover {
+  background-color: #135A6D;
+  transform: scale(1.05);
 }
 
 .ticket.selected {
   border: 2px solid #00a8e8;
 }
 
-.ticket:hover {
-  background-color: #135A6D;
-}
 .ticket-type {
   font-size: 18px;
   font-weight: bold;
@@ -160,25 +145,28 @@ select {
   color: #c0d8d8;
   border: 1px solid #00bcd4;
 }
+
 .error-message {
   color: red;
   font-size: 14px;
   margin-top: 10px;
 }
 
+/* Buttons */
 .buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.cancel, .next {
+.cancel,
+.next {
   width: 48%;
   padding: 8px;
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .cancel {
@@ -199,4 +187,56 @@ select {
 
 .next:hover {
   background-color: darkblue;
+}
+
+/* Responsive Styles for Mobile Devices */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .inner-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .tickets {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ticket {
+    width: 80%;
+    margin: 10px 0;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cancel,
+  .next {
+    width: 100%;
+  }
+}
+
+/* Extra adjustments for very small screens */
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .header span {
+    font-size: 12px;
+  }
+
+  .ticket-type {
+    font-size: 16px;
+  }
+
+  select, .cancel, .next {
+    font-size: 14px;
+  }
 }

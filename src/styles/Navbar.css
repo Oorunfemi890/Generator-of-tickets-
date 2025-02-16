@@ -1,0 +1,84 @@
+/* Global reset for box-sizing (if not already in a global stylesheet) */
+* {
+    box-sizing: border-box;
+  }
+  
+ /* Prevent any accidental horizontal overflow */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  
+  .navbar {
+    position: absolute; 
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;            
+    max-width: 90vw;       
+    padding: 15px 30px;
+    background-color: #05252C;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s ease-in-out;
+    z-index: 10;
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px) translateX(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) translateX(-50%);
+      opacity: 1;
+    }
+  }
+  
+  .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #00a8e8;
+  }
+  
+  .nav-links .active {
+    font-weight: bold;
+    border-bottom: 2px solid #00a8e8;
+  }
+  
+  .logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .my-tickets {
+    background: #ffffff;
+    color: #081c24;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .my-tickets:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive: On mobile, hide the nav-links */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+  

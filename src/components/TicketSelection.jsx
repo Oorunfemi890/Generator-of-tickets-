@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { assets } from "../assets/assets";
 import "../styles/TicketsSelection.css";
 
 const TicketSelection = () => {
@@ -20,20 +19,6 @@ const TicketSelection = () => {
 
   return (
     <div className="container">
-      {/* Navbar */}
-      <nav className="navbar">
-          <div className="logo">
-            <img src={assets.thumb} alt="thumb" />
-            <img className="logo-text" src={assets.ticz} alt="ticz" />
-          </div>
-        <div className="nav-links">
-          <a href="#" className="active">Events</a>
-          <a href="#">My Tickets</a>
-          <a href="#">About Project</a>
-        </div>
-        <button className="my-tickets">MY TICKETS →</button>
-      </nav>
-
       {/* Ticket Selection Card */}
       <div className="card">
         <div className="header">
@@ -84,9 +69,6 @@ const TicketSelection = () => {
               ))}
             </select>
           </div>
-
-          {/* Error Message */}
-          {/* {error && <p className="error-message">{error}</p>} */}
 
           {/* Buttons */}
           <div className="buttons">

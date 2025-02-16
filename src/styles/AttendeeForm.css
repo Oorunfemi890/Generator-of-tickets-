@@ -1,120 +1,265 @@
-/* AttendeeForm.css */
+/* Global Reset (if not already in a global stylesheet) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* Global styles */
+html,
 body {
-    font-family: Arial, sans-serif;
-    background-color: #0f1b21;
-    color: #d1e8ff;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  /* Container styling */
-  .attendee-form {
-    background: #15232d;
+  background-color: #05252c;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Container to center the card */
+.attendee-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
+  margin-top: 80px;
+
+}
+
+/* Main Card */
+.attendee-card {
+  background-color: #041e23;
+  border: 1px solid #197686;
+  padding: 24px;
+  border-radius: 20px;
+  width: 500px;
+  max-width: 95%;
+  margin: auto;
+}
+
+/* Header */
+.attendee-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.attendee-step {
+  font-size: 14px;
+  text-align: center;
+  color: #b0b0b0;
+  margin-bottom: 16px;
+}
+
+/* Progress Bar */
+.attendee-progress-bar {
+  width: 100%;
+  background-color: #2a4a54;
+  border-radius: 10px;
+  height: 8px;
+  margin-bottom: 20px;
+}
+
+.attendee-progress {
+  background-color: #197686;
+  height: 8px;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* Upload Section */
+.attendee-upload-section {
+  margin-bottom: 20px;
+}
+
+.attendee-upload-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.attendee-upload-box {
+  border: 1px dashed #197686;
+  border-radius: 10px;
+  background-color: #07373f;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.attendee-file-input {
+  display: none; /* Hidden file input */
+}
+
+.attendee-upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.attendee-upload-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.attendee-upload-preview {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Form Fields */
+.attendee-label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #ff4d4f;
+}
+
+.attendee-input {
+  width: 100%;
+  background-color: #08252b;
+  border: 1px solid #197686;
+  border-radius: 8px;
+  padding: 10px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.attendee-email-field {
+  width: 100%;
+  background-color: #08252b;
+  border: 1px solid #197686;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.attendee-mail-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.attendee-input-email {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.attendee-textarea {
+  width: 100%;
+  background-color: #08252b;
+  border: 1px solid #197686;
+  border-radius: 8px;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  min-height: 80px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+/* Error Messages */
+.attendee-error {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.attendee-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.attendee-btn-back,
+.attendee-btn-submit {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.attendee-btn-back {
+  background-color: #777777;
+  color: #ffffff;
+}
+
+.attendee-btn-back:hover {
+  background-color: #666666;
+}
+
+.attendee-btn-submit {
+  background-color: #197686;
+  color: #ffffff;
+}
+
+.attendee-btn-submit:hover {
+  background-color: #15606c;
+}
+
+.attendee-btn-submit:disabled {
+  background-color: #0e464f;
+  cursor: not-allowed;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .attendee-card {
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    width: 90%;
-    max-width: 500px;
-    display: flex;
+  }
+
+  .attendee-upload-box {
+    padding: 16px;
+  }
+
+  .attendee-upload-preview {
+    max-height: 160px;
+  }
+
+  .attendee-buttons {
     flex-direction: column;
-    gap: 15px;
-    animation: fadeIn 0.5s ease-in-out;
   }
-  
-  /* Header Styling */
-  .attendee-header {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 2px solid #1a3a5f;
-    padding-bottom: 10px;
-  }
-  
-  /* Upload Box */
-  .upload-box {
-    border: 2px dashed #4a90e2;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  .upload-box:hover {
-    background-color: rgba(74, 144, 226, 0.1);
-  }
-  
-  /* Form Fields */
-  .input-field {
+
+  .attendee-btn-back,
+  .attendee-btn-submit {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendee-title {
+    font-size: 20px;
+  }
+
+  .attendee-step {
+    font-size: 12px;
+  }
+
+  .attendee-upload-label {
+    font-size: 14px;
+  }
+
+  .attendee-btn-back,
+  .attendee-btn-submit {
+    font-size: 14px;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #1e2f3d;
-    color: #d1e8ff;
-    outline: none;
-    transition: 0.3s;
   }
-  .input-field:focus {
-    border: 2px solid #4a90e2;
-  }
-  
-  /* Buttons */
-  .btn-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  .btn {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-  }
-  .btn-back {
-    background: transparent;
-    color: #4a90e2;
-    border: 1px solid #4a90e2;
-  }
-  .btn-back:hover {
-    background: #4a90e2;
-    color: white;
-  }
-  .btn-submit {
-    background: #4a90e2;
-    color: white;
-  }
-  .btn-submit:hover {
-    background: #357abd;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .attendee-form {
-      max-width: 90%;
-    }
-    .btn-container {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
-  
+}
