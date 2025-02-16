@@ -1,16 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { assets } from "../assets/assets";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import html2canvas from "html2canvas";
+import JsBarcode from "jsbarcode";
 import "../styles/Ticket.css";
 
 const Tickets = () => {
   const [attendeeDetails, setAttendeeDetails] = useState(null);
+  const barcodeRef = useRef(null);
 
   useEffect(() => {
     const storedData = localStorage.getItem("finalTicketData");
     if (storedData) {
-      setAttendeeDetails(JSON.parse(storedData));
+      const parsedData = JSON.parse(storedData);
+      setAttendeeDetails(parsedData);
+
+      // Generate barcode after setting data
+      setTimeout(() => {
+        if (barcodeRef.current) {
+          JsBarcode(barcodeRef.current, parsedData.email || "123456789", {
+            format: "CODE128",
+            displayValue: false,
+            lineColor: "#fff",
+            width: 2,
+            height: 50,
+          });
+        }
+      }, 300);
     }
   }, []);
 
@@ -39,52 +54,48 @@ const Tickets = () => {
     <div className="ticket-wrapper">
       <p className="ticket-header-title">Your Ticket Is Booked!</p>
       <p className="ticket-header-subtitle">
-        Check your email for a copy or you can download
+        Check your email for a copy or download it now
       </p>
-      <img className="ticket-background" src={assets.ticket} alt="Ticket BG" />
       <div className="ticket-container">
         <div className="ticket-profile">
-          <img
-            src={attendeeDetails.profilePhoto}
-            alt="Profile"
-          />
+          <img src={attendeeDetails.profilePhoto} alt="Profile" />
         </div>
         <div className="ticket-details">
           <div className="ticket-row">
             <div className="ticket-info">
-              <p className="ticket-label">Enter your name</p>
+              <p className="ticket-label">Name</p>
               <p className="ticket-text">{attendeeDetails.name}</p>
             </div>
             <div className="ticket-info">
-              <p className="ticket-label">Enter your email*</p>
+              <p className="ticket-label">Email</p>
               <p className="ticket-text">{attendeeDetails.email}</p>
             </div>
           </div>
           <div className="ticket-row">
             <div className="ticket-info">
-              <p className="ticket-label">Ticket Type:</p>
+              <p className="ticket-label">Ticket Type</p>
               <p className="ticket-text">{attendeeDetails.selectedTicket}</p>
             </div>
             <div className="ticket-info">
-              <p className="ticket-label">Ticket for:</p>
+              <p className="ticket-label">Number of Tickets</p>
               <p className="ticket-text">{attendeeDetails.ticketCount}</p>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Barcode Display */}
       <div className="barcode-container">
-        <img src={assets.barcode} alt="Barcode" />
+        <svg ref={barcodeRef}></svg>
       </div>
+
       <div className="ticket-buttons">
         <Link to={"/"}>
           <button className="ticket-btn book-another">
             Book Another Ticket
           </button>
         </Link>
-        <button
-          onClick={handleDownloadTicket}
-          className="ticket-btn download"
-        >
+        <button onClick={handleDownloadTicket} className="ticket-btn download">
           Download Ticket
         </button>
       </div>

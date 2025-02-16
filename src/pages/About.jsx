@@ -119,7 +119,7 @@ const About = () => {
           </a>
           <a
             className="about-button github-button"
-            href="https://github.com/lordgreg003/hng-ticket-generator-profile"
+            href="https://github.com/Oorunfemi890/Generator-of-tickets-.git"
             target="_blank"
             rel="noopener noreferrer"
           >
