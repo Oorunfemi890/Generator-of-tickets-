@@ -1,20 +1,25 @@
-// App.jsx
-import React from "react";
+import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/Navbar";
 import TicketSelection from "./components/TicketSelection";
-import Attendee from "./components/Attendee"; // if this page exists
+import AttendeeDetails from "./components/Attendee";
+import About from "./pages/About";
+import Tickets from "./pages/Ticket";
+import { ToastContainer } from "react-toastify";
 
-const App = () => {
+function App() {
   return (
-    <>
-      <Navbar />
+    <div >
+      <ToastContainer />
+      <NavBar />
       <Routes>
         <Route path="/" element={<TicketSelection />} />
-        <Route path="/attendee" element={<Attendee />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/tickets" element={<Tickets />} />
+        <Route path="/attendee-details" element={<AttendeeDetails />} />
       </Routes>
-    </>
+    </div>
   );
-};
+}
 
 export default App;

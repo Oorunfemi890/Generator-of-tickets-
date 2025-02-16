@@ -31,7 +31,6 @@ const AttendeeDetails = () => {
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file && file.type.startsWith("image/")) {
-      // Instead of uploading, we create a local URL for preview
       const fileUrl = URL.createObjectURL(file);
       toast.success("File selected successfully!");
       setProfilePhoto(fileUrl);

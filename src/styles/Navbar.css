@@ -17,7 +17,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90vw;            
+    width: 90vw; 
+    border: 1px solid #197686;           
     max-width: 90vw;       
     padding: 15px 30px;
     background-color: #05252C;

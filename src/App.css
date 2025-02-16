@@ -1,0 +1,27 @@
+/* App.css */
+.app-container {
+    padding: 1rem; /* corresponds to px-4 */
+    background-color: #05252C; /* same as bg-[#05252C] */
+    /* Use media queries to replicate responsive padding if desired */
+  }
+  
+  /* Example responsive adjustments: */
+  @media (min-width: 640px) {
+    .app-container {
+      padding-left: 5vw;
+      padding-right: 5vw;
+    }
+  }
+  @media (min-width: 768px) {
+    .app-container {
+      padding-left: 7vw;
+      padding-right: 7vw;
+    }
+  }
+  @media (min-width: 1024px) {
+    .app-container {
+      padding-left: 9vw;
+      padding-right: 9vw;
+    }
+  }
+  

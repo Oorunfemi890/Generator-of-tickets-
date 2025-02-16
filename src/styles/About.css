@@ -1,0 +1,143 @@
+/* About.css */
+
+.about-section {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    background-color: #05252C;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-container {
+    width: 100%;
+    max-width: 1200px;
+    border: 1px solid #0E464F;
+    border-radius: 2rem;
+    padding: 2rem;
+  }
+  
+  .about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .about-overview {
+    font-size: 1rem;
+    color: #cccccc;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .feature-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding-left: 1rem;
+  }
+  
+  .feature-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #24A0B5;
+  }
+  
+  .about-enjoy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+  }
+  
+  .about-enjoy p {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .about-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .about-button {
+    display: inline-block;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .design-button {
+    border: 2px solid #24A0B5;
+    color: #24A0B5;
+  }
+  
+  .design-button:hover {
+    background-color: #24A0B5;
+    color: #ffffff;
+  }
+  
+  .github-button {
+    background-color: #24A0B5;
+    color: #ffffff;
+  }
+  
+  .github-button:hover {
+    background-color: #1e8893;
+  }
+  
+  /* Responsive Styles */
+  @media (min-width: 768px) {
+    .about-buttons {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .about-title {
+      font-size: 2.5rem;
+    }
+    .about-overview {
+      font-size: 1.125rem;
+    }
+    .feature-title {
+      font-size: 1.5rem;
+    }
+  }
+  
