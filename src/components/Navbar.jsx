@@ -32,11 +32,9 @@ const Navbar = () => {
           About Project
         </Link>
       </div>
-      {ticketGenerated && (
-        <Link to="/tickets">
+      
           <button className="my-tickets">MY TICKETS →</button>
-        </Link>
-      )}
+        
     </nav>
   );
 };
